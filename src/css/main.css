@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.overflow_hidden{
+    overflow: hidden;
+}
