@@ -48,12 +48,9 @@ export default {
     }
     this.save_geohash(this.geohash)
     this.temporary = msiteAdress(this.geohash)
+     console.log(this.temporary)
   },
-  mounted(){
-    console.log("kkkkk")
-    console.log(this.temporary+"??????")
-    // this.recode_address(res)
-  },
+
   components:{
     Second,
     "min-com":MinCom,
@@ -63,6 +60,7 @@ export default {
     "boot":Boot
   },
   mounted:function(){
+   
     if(this.$route.query.page){
       this.head = this.$route.query.page;
     }
