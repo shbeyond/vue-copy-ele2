@@ -13,7 +13,7 @@
         </section>
         <section v-show='city_list'>
             <ul>
-                <li tag="li" v-for="(citylist,index) in marchCity" :key='index' class="city_li" @click="jump_next_page(citylist.name)">
+                <li tag="li" v-for="(citylist,index) in marchCity" :key='index' class="city_li" @click="jump_next_page(citylist.name,citylist.geohash)">
                     <h4>{{citylist.name}}</h4>
                     <span style="color:#999;">{{citylist.address}}</span>
                 </li>
@@ -48,13 +48,14 @@ export default {
           if(this.keyword){
              searchplace(this.city_id,this.keyword).then(res=>{
                  this.city_list = true;
-                 console.log(res.data)
+                //  console.log(res.data)
                  this.marchCity = res.data;
              });
+             
           }
       },
-      jump_next_page(page){
-          this.$router.push({path:'/', query:{page}})
+      jump_next_page(page,geohash){
+          this.$router.push({path:'/', query:{page,geohash}})
       }
   }
 }   

@@ -7,3 +7,8 @@ export const otherData = axios.get(HOST+'v1/cities?type=hot').then(function(res)
 });
 
 export const searchplace = (cityid,inputValue) => axios.get(HOST+'v1/pois?type=search&city_id='+cityid+'&keyword='+inputValue);
+
+export const cityGuess =()=>axios.get(HOST+'v1/cities',{
+    type:'guess'
+})
+export const msiteAdress = geohash => fetch(HOST+'v2/pois/' + geohash);

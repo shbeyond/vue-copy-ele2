@@ -41,13 +41,13 @@
 <script>
 import axios from "axios"
 import { getRestauRantList } from './getdata/get_need_data.js'
+import { mapState } from "vuex"
+
 export default {
     data(){
         return{
             foodDetail:[],
             imgBaseUrl :'http://cangdu.org:8001/img/',
-            latitude:'',
-            longitude:'',
             offset:0,
             restaurantCategoryId:''
         }
@@ -55,14 +55,20 @@ export default {
     mounted(){
         this.initData()
     },
+    computed:{
+        ...mapState([
+            'latitude','longitude'
+        ])
+    },
+    props:[
+        'geohash'
+    ],
     methods:{
         initData(){
-            // var $this = this;
-            // axios.get("./src/data/foods_detail.json").then(function(res){
-            //     let result = res.data;
-            //     $this.foodDetail = result;
-            // })
+
            let res = getRestauRantList(this.latitude, this.longitude, this.offset, this.restaurantCategoryId)
+            // this.foodDetail = [...res]
+            // console.log(res)
         },
         zhunshi(support){
             let zhunStatus;
