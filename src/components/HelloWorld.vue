@@ -48,7 +48,8 @@ export default {
     }
     this.save_geohash(this.geohash)
     this.temporary = msiteAdress(this.geohash)
-     console.log(this.temporary)
+    console.log(this.temporary)
+
   },
 
   components:{

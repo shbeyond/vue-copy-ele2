@@ -11,4 +11,8 @@ export const searchplace = (cityid,inputValue) => axios.get(HOST+'v1/pois?type=s
 export const cityGuess =()=>axios.get(HOST+'v1/cities',{
     type:'guess'
 })
+
+
+
+
 export const msiteAdress = (geohash) => axios.get(HOST+'v2/pois/' + geohash);
